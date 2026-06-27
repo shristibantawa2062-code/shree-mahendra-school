@@ -1,7 +1,7 @@
 import "./Achievements.css";
 
 const ACHIEVEMENTS = [
-  { icon: "trophy",   iconColor: "#1649B0", iconBg: "#EEF2FF", year: "2081 BS", title: "District-Level SEE Excellence",      desc: "Ranked among top performers in Morang district for SEE 2081, with multiple students scoring GPA 3.95+." },
+  { icon: "award",    iconColor: "#1649B0", iconBg: "#EEF2FF", year: "2081 BS", title: "District-Level SEE Excellence",      desc: "Ranked among top performers in Morang district for SEE 2081, with multiple students scoring GPA 3.95+." },
   { icon: "football", iconColor: "#DC2626", iconBg: "#FEF2F2", year: "2080 BS", title: "Inter-School Football Champions",    desc: "Won the Haraicha Municipality inter-school football championship for the second consecutive year." },
   { icon: "mic",      iconColor: "#7C3AED", iconBg: "#F5F3FF", year: "2081 BS", title: "District Debate Competition Winner", desc: "Students placed first in the Koshi Province district-level Nepali debate competition." },
   { icon: "palette",  iconColor: "#D97706", iconBg: "#FFFBEB", year: "2080 BS", title: "Art & Culture Festival Award",       desc: "Awarded best school at the Morang district cultural festival — dance, drama, and fine arts." },
@@ -60,7 +60,7 @@ export default function Achievements() {
         <div className="ach-hero-inner">
           <div className="ach-hero-left">
             <div className="ach-eyebrow">
-              <Icon name="trophy" size={14} color="rgba(255,255,255,0.90)" />
+              <Icon name="award" size={14} color="rgba(255,255,255,0.90)" />
               Recognition &amp; Honours
             </div>
             <h1 className="ach-hero-title">Our Achievements</h1>
@@ -70,10 +70,6 @@ export default function Achievements() {
               Over thirty years, Shree Mahendra Secondary School has earned recognition in academics,
               sports, culture, and community service at local, district, and provincial levels.
             </p>
-          </div>
-          {/* Trophy illustration on the right */}
-          <div className="ach-hero-trophy" aria-hidden="true">
-            <Icon name="trophy" size={96} color="#FFFFFF" />
           </div>
         </div>
       </section>
