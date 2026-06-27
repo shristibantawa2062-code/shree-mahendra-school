@@ -1,0 +1,364 @@
+/* ══════════════════════════════════════════
+   Achievements.css — Shree Mahendra Secondary School
+   ══════════════════════════════════════════ */
+
+/* ── HERO ── */
+.ach-hero {
+  background: linear-gradient(145deg, #0A1F44 0%, #0E2D6B 50%, #1649B0 100%);
+  padding: 52px 48px 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ach-hero-top-rule {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: #2B6FE8;
+}
+
+.ach-hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.ach-hero-left {
+  flex: 1;
+}
+
+.ach-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.90);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  margin-bottom: 22px;
+}
+
+.ach-hero-title {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.12;
+  margin: 0 0 4px;
+  letter-spacing: -0.02em;
+}
+
+.ach-hero-title.dim {
+  color: rgba(255, 255, 255, 0.40);
+}
+
+.ach-divider {
+  width: 48px;
+  height: 3px;
+  background: #2B6FE8;
+  border: none;
+  border-radius: 2px;
+  margin: 20px 0;
+}
+
+.ach-hero-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.78;
+  margin: 0;
+  max-width: 500px;
+}
+
+.ach-hero-trophy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.95;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+}
+
+/* ── TOP STATS BAR ── */
+.ach-stats {
+  background: #fff;
+  border-bottom: 1px solid #C4D1EF;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+.ach-stat {
+  flex: 1;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 16px;
+  border-right: 1px solid #C4D1EF;
+  transition: background 0.15s;
+}
+
+.ach-stat:last-child {
+  border-right: none;
+}
+
+.ach-stat:hover {
+  background: #F2F5FC;
+}
+
+.ach-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.ach-stat-val {
+  font-size: 28px;
+  font-weight: 900;
+  color: #0A1F44;
+  letter-spacing: -0.02em;
+}
+
+.ach-stat-lbl {
+  font-size: 11px;
+  color: #556080;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ── ACHIEVEMENT CARDS ── */
+.ach-section {
+  background: #F2F5FC;
+  padding: 52px 40px 44px;
+}
+
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.ach-card {
+  background: #fff;
+  border: 1px solid #C4D1EF;
+  border-radius: 12px;
+  padding: 22px 20px;
+  transition: all 0.2s ease;
+}
+
+.ach-card:hover {
+  border-color: #2B6FE8;
+  box-shadow: 0 6px 24px rgba(22, 73, 176, 0.12);
+  transform: translateY(-3px);
+}
+
+.ach-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.ach-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ach-year {
+  background: #0A1F44;
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 4px;
+}
+
+.ach-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0A1F44;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.ach-card-desc {
+  font-size: 12px;
+  color: #556080;
+  line-height: 1.65;
+}
+
+/* ── SHARED SECTION HELPERS ── */
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.sec-bar {
+  width: 4px;
+  height: 26px;
+  background: #1649B0;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.sec-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0A1F44;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.sec-sub {
+  font-size: 13px;
+  color: #556080;
+  margin-bottom: 28px;
+  padding-left: 16px;
+}
+
+/* ── TIMELINE ── */
+.timeline-section {
+  background: #0A1F44;
+  padding: 52px 48px 48px;
+  border-top: 4px solid #1649B0;
+}
+
+.tl-sec-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px;
+  letter-spacing: -0.02em;
+}
+
+.tl-sec-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 34px;
+  padding-left: 16px;
+}
+
+.timeline {
+  max-width: 700px;
+}
+
+.tl-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.tl-year {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  min-width: 64px;
+  text-align: right;
+  padding-top: 2px;
+}
+
+.tl-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tl-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2B6FE8;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.tl-stem {
+  width: 2px;
+  background: rgba(43, 111, 232, 0.20);
+  flex: 1;
+  min-height: 28px;
+}
+
+.tl-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  padding-bottom: 24px;
+  line-height: 1.65;
+  padding-top: 2px;
+}
+
+/* ── AWARDS SECTION ── */
+.awards-section {
+  background: #fff;
+  padding: 52px 40px 44px;
+}
+
+.awards-placeholder {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.award-item {
+  width: 90px;
+  height: 90px;
+  background: #F2F5FC;
+  border: 1px solid #C4D1EF;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+  cursor: default;
+}
+
+.award-item:hover {
+  transform: scale(1.08);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .ach-hero {
+    padding: 40px 20px 36px;
+  }
+
+  .ach-hero-inner {
+    flex-direction: column;
+  }
+
+  .ach-hero-trophy {
+    font-size: 64px;
+  }
+
+  .ach-stats {
+    flex-wrap: wrap;
+  }
+
+  .ach-stat {
+    min-width: 45%;
+    border-right: none;
+    border-bottom: 1px solid #C4D1EF;
+  }
+
+  .ach-section,
+  .awards-section {
+    padding: 40px 20px;
+  }
+
+  .timeline-section {
+    padding: 40px 20px;
+  }
+}

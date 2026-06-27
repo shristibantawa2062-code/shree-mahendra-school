@@ -1,0 +1,310 @@
+/* ══════════════════════════════════════════
+   Navbar.css — Shree Mahendra Secondary School
+   ══════════════════════════════════════════ */
+
+:root {
+  --c-primary:  #0A1F44;
+  --c-mid:      #0E2D6B;
+  --c-royal:    #1649B0;
+  --c-bright:   #2B6FE8;
+  --c-white:    #FFFFFF;
+  --c-muted:    #556080;
+  --c-border:   #C4D1EF;
+}
+
+/* ── TOP INFO STRIP ── */
+.top-strip {
+  background: var(--c-primary);
+  padding: 7px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.top-strip-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.top-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.60);
+}
+
+.top-strip-divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.top-strip-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.top-strip-social {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.top-strip-social:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* ── MAIN NAVBAR ── */
+.navbar {
+  background: var(--c-white);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--c-primary);
+  box-shadow: 0 2px 20px rgba(10, 31, 68, 0.10);
+}
+
+/* Brand */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 0;
+  text-decoration: none;
+}
+
+.nav-logo-box {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(140deg, var(--c-primary) 0%, var(--c-royal) 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(22, 73, 176, 0.30);
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.nav-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--c-primary);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.nav-name-nep {
+  font-size: 11px;
+  color: var(--c-royal);
+  font-weight: 600;
+}
+
+.nav-sub {
+  font-size: 10px;
+  color: var(--c-muted);
+}
+
+/* Links */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-muted);
+  padding: 18px 16px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  display: inline-block;
+  letter-spacing: 0.01em;
+  transition: color 0.15s, border-color 0.15s;
+  user-select: none;
+}
+
+.nav-link:hover {
+  color: var(--c-primary);
+}
+
+.nav-link.active {
+  color: var(--c-primary);
+  border-bottom-color: var(--c-royal);
+  font-weight: 700;
+}
+
+.nav-contact-btn {
+  background: var(--c-royal);
+  color: var(--c-white);
+  border: none;
+  border-radius: 6px;
+  padding: 9px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 12px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  transition: background 0.15s;
+}
+
+.nav-contact-btn:hover {
+  background: var(--c-bright);
+}
+
+/* Hamburger — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--c-primary);
+  border-radius: 2px;
+  transition: transform 0.2s;
+}
+
+/* ── NOTICE TICKER ── */
+.ticker {
+  background: var(--c-mid);
+  padding: 8px 40px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ticker-label {
+  background: var(--c-royal);
+  color: var(--c-white);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ticker-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.80);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.ticker-link {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.50);
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.ticker-link:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .top-strip {
+    padding: 7px 20px;
+  }
+
+  .top-strip-left .top-strip-divider:not(:first-of-type),
+  .top-strip-left .top-strip-item:nth-child(n+3) {
+    display: none;
+  }
+
+  .navbar {
+    padding: 0 20px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-right {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 0 16px;
+    border-top: 1px solid var(--c-border);
+    gap: 0;
+  }
+
+  .nav-right.open {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: 12px 4px;
+    width: 100%;
+    border-bottom: 1px solid var(--c-border);
+    border-left: none;
+  }
+
+  .nav-link.active {
+    border-bottom-color: var(--c-border);
+    border-left: 3px solid var(--c-royal);
+    padding-left: 12px;
+  }
+
+  .nav-contact-btn {
+    margin: 14px 0 0;
+    width: 100%;
+    text-align: center;
+    padding: 11px;
+  }
+
+  .ticker {
+    padding: 8px 20px;
+  }
+}
