@@ -6,10 +6,33 @@
 
 .gallery-breadcrumb {
   background: #1649B0;
-  color: #000000;
-  padding: 10px 32px;
-  font-size: 14px;
-  border-bottom: 1px solid #e0e0e0;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 11px 32px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gallery-breadcrumb .breadcrumb-link {
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.gallery-breadcrumb .breadcrumb-link:hover {
+  color: #fff;
+}
+
+.gallery-breadcrumb .breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.gallery-breadcrumb .breadcrumb-current {
+  color: #fff;
+  font-weight: 600;
 }
 
 .gallery-body {
@@ -27,12 +50,12 @@
 .gallery-main h1 {
   font-size: 26px;
   margin-bottom: 8px;
-  color: black;
+  color: #0A1F44;
 }
 
 .gallery-subtitle {
   font-size: 14px;
-  color: #666;
+  color: #556080;
   margin-bottom: 24px;
 }
 
@@ -45,24 +68,28 @@
 
 .gallery-tab {
   padding: 8px 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #e0e0e0;
   background: white;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 13px;
   cursor: pointer;
   transition: all 0.2s;
   font-family: 'Segoe UI', sans-serif;
+  font-weight: 500;
+  color: #556080;
 }
 
 .gallery-tab:hover {
   border-color: #2B6FE8;
   color: #2B6FE8;
+  background: #F2F5FC;
 }
 
 .gallery-tab.active {
   background: #1649B0;
   color: white;
   border-color: #1649B0;
+  font-weight: 600;
 }
 
 .gallery-grid {
@@ -116,6 +143,7 @@
 .gallery-sidebar h3 {
   font-size: 16px;
   margin-bottom: 16px;
+  color: #0A1F44;
 }
 
 .gallery-sidebar ul {

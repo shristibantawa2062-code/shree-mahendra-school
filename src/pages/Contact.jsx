@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
 import "./Contact.css";
 
 const FAQS = [
@@ -26,11 +26,14 @@ function FAQItem({ faq, open, toggle }) {
 }
 
 export default function Contact() {
+  const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState(null);
   return (
     <div className="contact-page">
       <div className="contact-breadcrumb">
-        Home <span>&gt;&gt;</span> Contact
+        <span className="breadcrumb-link" onClick={() => navigate("/")}>Home</span>
+        <span className="breadcrumb-sep">›</span>
+        <span className="breadcrumb-current">Contact</span>
       </div>
 
       <div className="contact-body">

@@ -1,9 +1,33 @@
 .cp-breadcrumb {
-    background: rgb(20, 138, 229);
-    color: #000000;
-    padding: 10px 32px;
-    font-size: 14px;
-    border-bottom: 1px solid #e0e0e0;
+    background: #1649B0;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 11px 32px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cp-breadcrumb .breadcrumb-link {
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.cp-breadcrumb .breadcrumb-link:hover {
+    color: #fff;
+}
+
+.cp-breadcrumb .breadcrumb-sep {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 16px;
+    line-height: 1;
+}
+
+.cp-breadcrumb .breadcrumb-current {
+    color: #fff;
+    font-weight: 600;
 }
 
 .cp-body {

@@ -72,6 +72,7 @@ export default function Footer() {
         <div>
           <div className="footer-col-title">Quick Links</div>
           <div className="footer-col-bar" />
+          <div className="footer-quick-grid">
           {["Home", "Achievements", "About Us", "Courses", "Gallery", "Alumni", "Events", "News", "Contact", "Notice", "Download", "Admissions", "Academics", "Notice Board"].map(link => {
             const displayName = link === "About Us" ? "About" : link;
             const path = LINK_MAP[displayName];
@@ -85,6 +86,7 @@ export default function Footer() {
               </span>
             );
           })}
+          </div>
         </div>
 
         {/* Column 3 — Academic */}

@@ -95,6 +95,13 @@
   margin-bottom: 16px;
 }
 
+/* ── Quick links two-column ── */
+.footer-quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
 /* ── Footer links ── */
 .footer-link {
   display: block;

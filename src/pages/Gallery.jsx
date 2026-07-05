@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import "./Gallery.css";
 
@@ -48,6 +49,7 @@ const images = [
 ];
 
 export default function Gallery() {
+  const navigate = useNavigate();
   const [activeCat, setActiveCat] = useState("All");
   const [selectedImg, setSelectedImg] = useState(null);
 
@@ -73,7 +75,9 @@ export default function Gallery() {
         </div>
       )}
       <div className="gallery-breadcrumb">
-        Home <span>&gt;&gt;</span> Gallery
+        <span className="breadcrumb-link" onClick={() => navigate("/")}>Home</span>
+        <span className="breadcrumb-sep">›</span>
+        <span className="breadcrumb-current">Gallery</span>
       </div>
 
       <div className="gallery-body">

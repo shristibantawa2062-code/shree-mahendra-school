@@ -14,7 +14,7 @@ function toPath(name) {
   return name === "Home" ? "/" : `/${name.toLowerCase()}`;
 }
 
-function Icon({ name, size = 22, color = "currentColor" }) {
+function Icon({ name, size = 22, color = "currentColor", className }) {
   const paths = {
     school:   <><path d="M3 9.5L12 4l9 5.5V20H3V9.5z" stroke={color} strokeWidth="1.6" fill="none" strokeLinejoin="round"/><rect x="9" y="14" width="6" height="6" rx="0.5" stroke={color} strokeWidth="1.6" fill="none"/><path d="M12 4v2M19 9.5V7" stroke={color} strokeWidth="1.6" strokeLinecap="round"/></>,
     map:      <><path d="M12 22s-8-5.5-8-12a8 8 0 0116 0c0 6.5-8 12-8 12z" stroke={color} strokeWidth="1.6" fill="none" strokeLinejoin="round"/><circle cx="12" cy="10" r="2.5" stroke={color} strokeWidth="1.5" fill="none"/></>,
@@ -27,7 +27,7 @@ function Icon({ name, size = 22, color = "currentColor" }) {
     email:    <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke={color} strokeWidth="1.6" fill="none"/><path d="M22 6l-10 7L2 6" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round"/></>,
   };
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       {paths[name]}
     </svg>
   );
@@ -38,6 +38,7 @@ export default function Navbar() {
   const location = useLocation();
   const [noticeIdx, setNoticeIdx] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoFailed, setLogoFailed] = useState(false);
 
   useEffect(() => {
     const t = setInterval(() => setNoticeIdx(i => (i + 1) % NOTICES.length), 4000);
@@ -55,24 +56,18 @@ export default function Navbar() {
       <div className="top-strip">
         <div className="top-strip-left">
           <span className="top-strip-item">
-            <Icon name="map" size={12} color="rgba(255,255,255,0.55)" />
-            Shukrabare, Haraicha Municipality, Morang, Koshi Province
+            <Icon name="clock" size={12} color="rgba(255,255,255,0.50)" />
+            Sun – Fri: 10 AM – 4 PM
           </span>
-          <div className="top-strip-divider" />
           <span className="top-strip-item">
-            <Icon name="clock" size={12} color="rgba(255,255,255,0.55)" />
-            Sun – Fri: 10:00 AM – 4:00 PM
-          </span>
-          <div className="top-strip-divider" />
-          <span className="top-strip-item">
-            <Icon name="phone" size={12} color="rgba(255,255,255,0.55)" />
+            <Icon name="phone" size={12} color="rgba(255,255,255,0.50)" />
             +977-021-XXXXXX
           </span>
         </div>
         <div className="top-strip-right">
-          <div className="top-strip-social"><Icon name="facebook" size={13} color="rgba(255,255,255,0.65)" /></div>
-          <div className="top-strip-social"><Icon name="youtube"  size={13} color="rgba(255,255,255,0.65)" /></div>
-          <div className="top-strip-social"><Icon name="email"    size={13} color="rgba(255,255,255,0.65)" /></div>
+          <span className="top-strip-item">Follow:</span>
+          <span className="top-strip-social"><Icon name="facebook" size={14} color="currentColor" /></span>
+          <span className="top-strip-social"><Icon name="youtube"  size={14} color="currentColor" /></span>
         </div>
       </div>
 
@@ -80,12 +75,15 @@ export default function Navbar() {
       <nav className="navbar">
         <div className="nav-brand" onClick={() => navigate("/")}>
           <div className="nav-logo-box">
-            <Icon name="school" size={26} color="#fff" />
+            {logoFailed ? (
+              <div className="nav-logo-fallback"><Icon name="school" size={22} color="#fff" /></div>
+            ) : (
+              <img src="/src/assets/logo.png" alt="Shree Mahendra" className="nav-logo-img" onError={() => setLogoFailed(true)} />
+            )}
           </div>
           <div className="nav-brand-text">
-            <div className="nav-name">Shree Mahendra Secondary School</div>
+            <div className="nav-name">Shree Mahendra<br />Secondary School</div>
             <div className="nav-name-nep">श्री महेन्द्र माध्यमिक विद्यालय</div>
-            <div className="nav-sub">Shukrabare, Haraicha, Morang · Est. 2046 BS</div>
           </div>
         </div>
 

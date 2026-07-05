@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Courses.css";
 
 const courses = [
@@ -21,6 +22,7 @@ const courses = [
 ];
 
 export default function Courses() {
+    const navigate = useNavigate();
     const [active, setActive] = useState("cs");
     const current = courses.find(c => c.id === active);
     const others = courses.filter(c => c.id !== active);
@@ -28,7 +30,11 @@ export default function Courses() {
     return (
         <div className="cp">
             <div className="cp-breadcrumb">
-                <a href="/" style={{ color: '#fff', textDecoration: 'none' }}>Home</a> <span>&gt;&gt;</span> Courses <span>&gt;&gt;</span> {current.title}
+                <span className="breadcrumb-link" onClick={() => navigate("/")}>Home</span>
+                <span className="breadcrumb-sep">›</span>
+                <span className="breadcrumb-current">Courses</span>
+                <span className="breadcrumb-sep">›</span>
+                <span className="breadcrumb-current">{current.title}</span>
             </div>
 
             <div className="cp-body">
