@@ -5,6 +5,8 @@ import About from './pages/About'
 import Courses from './pages/Courses'
 import Achievements from './pages/Achievements'
 import Alumni from './pages/Alumni'
+import Notice from './pages/Notice'
+import Download from './pages/Download'
 import Footer from './components/Footer'
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
       {page === 'Courses'      && <Courses                         />}
       {page === 'Achievements' && <Achievements setPage={setPage} />}
       {page === 'Alumni'       && <Alumni                           />}
+      {page === 'Notice'       && <Notice                          />}
+      {page === 'Download'     && <Download                        />}
 
       <Footer setPage={setPage} />
 

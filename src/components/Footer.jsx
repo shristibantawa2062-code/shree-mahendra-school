@@ -55,11 +55,11 @@ export default function Footer({ setPage }) {
         <div>
           <div className="footer-col-title">Quick Links</div>
           <div className="footer-col-bar" />
-          {["Home", "Achievements", "About Us", "Courses", "Alumni", "Admissions", "Academics", "Notice Board"].map(link => (
+          {["Home", "Achievements", "About Us", "Courses", "Alumni", "Notice", "Download", "Admissions", "Academics", "Notice Board"].map(link => (
             <span
               key={link}
               className="footer-link"
-              onClick={() => ["Home", "Achievements", "About", "Courses", "Alumni"].includes(link) ? setPage(link) : null}
+              onClick={() => ["Home", "Achievements", "About", "Courses", "Alumni", "Notice", "Download"].includes(link) ? setPage(link) : null}
             >
               › {link}
             </span>

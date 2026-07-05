@@ -50,6 +50,35 @@
   align-items: center;
 }
 
+.top-strip-bell {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s;
+}
+
+.top-strip-bell:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.bell-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  background: #EF4444;
+  border-radius: 50%;
+  border: 1px solid var(--c-primary);
+}
+
 .top-strip-social {
   width: 26px;
   height: 26px;
@@ -132,6 +161,46 @@
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.nav-icon-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 8px;
+  padding-left: 12px;
+  border-left: 1px solid var(--c-border);
+}
+
+.nav-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s;
+}
+
+.nav-icon-btn:hover {
+  background: #EEF2FF;
+}
+
+.nav-icon-btn.active {
+  background: #EEF2FF;
+}
+
+.nav-icon-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 6px;
+  height: 6px;
+  background: #EF4444;
+  border-radius: 50%;
+  border: 2px solid white;
 }
 
 .nav-links {
@@ -302,6 +371,14 @@
     width: 100%;
     text-align: center;
     padding: 11px;
+  }
+
+  .nav-icon-group {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    padding: 8px 0;
+    width: 100%;
   }
 
   .ticker {
