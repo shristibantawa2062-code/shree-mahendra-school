@@ -1,0 +1,77 @@
+.nw {
+  min-height: 100vh;
+  background: #f8fbff;
+}
+
+.nw-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+.nw-eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #0891b2;
+  letter-spacing: 0.02em;
+}
+
+.nw-title {
+  margin-top: 8px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #312e81;
+}
+
+.nw-subtitle {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #52525b;
+}
+
+.nw-grid {
+  margin-top: 32px;
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .nw-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.nw-card {
+  border-radius: 8px;
+  border: 1px solid rgba(103, 232, 249, 0.6);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.nw-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.nw-card-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0891b2;
+}
+
+.nw-card-title {
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #18181b;
+}
+
+.nw-card-text {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #52525b;
+  line-height: 1.6;
+}
