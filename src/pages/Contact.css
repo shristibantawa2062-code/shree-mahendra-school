@@ -1,0 +1,254 @@
+.contact-page {
+  font-family: 'Segoe UI', sans-serif;
+  color: #222;
+  background: white;
+}
+
+.contact-breadcrumb {
+  background: #1649B0;
+  color: #000000;
+  padding: 10px 32px;
+  font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.contact-body {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-main {
+  flex: 1;
+}
+
+.contact-main h1 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.contact-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.contact-info-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+.contact-info-card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info-card svg {
+  color: #1649B0;
+  margin-bottom: 8px;
+}
+
+.contact-info-card h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.contact-info-card p {
+  font-size: 13px;
+  color: #555;
+}
+
+.contact-form {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 24px;
+}
+
+.contact-form h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #222;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.form-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #2B6FE8;
+}
+
+.form-btn {
+  background: #1649B0;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-btn:hover {
+  background: #0A1F44;
+}
+
+.contact-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.contact-sidebar h3 {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.contact-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-sidebar ul li {
+  margin-bottom: 8px;
+}
+
+.contact-sidebar ul li a {
+  color: #2B6FE8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.contact-sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* ── FAQ ── */
+.faq-section {
+  margin-top: 40px;
+}
+
+.faq-section h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #222;
+}
+
+.faq-list {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.faq-question:hover {
+  background: #F2F5FC;
+}
+
+.faq-chevron {
+  color: #1649B0;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.faq-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding: 0 20px 14px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .contact-body {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .contact-sidebar {
+    width: 100%;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

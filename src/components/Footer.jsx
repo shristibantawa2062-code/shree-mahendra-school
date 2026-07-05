@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./Footer.css";
 
 function Icon({ name, size = 22, color = "currentColor" }) {
@@ -17,7 +18,23 @@ function Icon({ name, size = 22, color = "currentColor" }) {
   );
 }
 
-export default function Footer({ setPage }) {
+const LINK_MAP = {
+  "Home": "/",
+  "Achievements": "/achievements",
+  "About": "/about",
+  "Courses": "/courses",
+  "Gallery": "/gallery",
+  "Alumni": "/alumni",
+  "Events": "/events",
+  "News": "/news",
+  "Contact": "/contact",
+  "Notice": "/notice",
+  "Download": "/download",
+};
+
+export default function Footer() {
+  const navigate = useNavigate();
+
   return (
     <footer className="footer-main">
       <div className="footer-grid">
@@ -55,15 +72,19 @@ export default function Footer({ setPage }) {
         <div>
           <div className="footer-col-title">Quick Links</div>
           <div className="footer-col-bar" />
-          {["Home", "Achievements", "About Us", "Courses", "Alumni", "Events", "News", "Notice", "Download", "Admissions", "Academics", "Notice Board"].map(link => (
-            <span
-              key={link}
-              className="footer-link"
-              onClick={() => ["Home", "Achievements", "About", "Courses", "Alumni", "Events", "News", "Notice", "Download"].includes(link) ? setPage(link) : null}
-            >
-              › {link}
-            </span>
-          ))}
+          {["Home", "Achievements", "About Us", "Courses", "Gallery", "Alumni", "Events", "News", "Contact", "Notice", "Download", "Admissions", "Academics", "Notice Board"].map(link => {
+            const displayName = link === "About Us" ? "About" : link;
+            const path = LINK_MAP[displayName];
+            return (
+              <span
+                key={link}
+                className="footer-link"
+                onClick={() => path && navigate(path)}
+              >
+                › {link}
+              </span>
+            );
+          })}
         </div>
 
         {/* Column 3 — Academic */}

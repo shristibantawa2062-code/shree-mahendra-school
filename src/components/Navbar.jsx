@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const NOTICES = [
@@ -7,9 +8,12 @@ const NOTICES = [
   "Annual Sports Day scheduled for Poush 15, 2081 BS.",
 ];
 
-const NAV_LINKS = ["Home", "Courses", "Alumni", "Events", "News"];
+const NAV_LINKS = ["Home", "Courses", "Gallery", "Alumni", "Events", "News"];
 
-/* ── inline SVG icon helper (no external lib needed) ── */
+function toPath(name) {
+  return name === "Home" ? "/" : `/${name.toLowerCase()}`;
+}
+
 function Icon({ name, size = 22, color = "currentColor" }) {
   const paths = {
     school:   <><path d="M3 9.5L12 4l9 5.5V20H3V9.5z" stroke={color} strokeWidth="1.6" fill="none" strokeLinejoin="round"/><rect x="9" y="14" width="6" height="6" rx="0.5" stroke={color} strokeWidth="1.6" fill="none"/><path d="M12 4v2M19 9.5V7" stroke={color} strokeWidth="1.6" strokeLinecap="round"/></>,
@@ -18,8 +22,6 @@ function Icon({ name, size = 22, color = "currentColor" }) {
     phone:    <><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z" stroke={color} strokeWidth="1.5" fill="none"/></>,
     bell:     <><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/><path d="M13.73 21a2 2 0 01-3.46 0" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></>,
     download: <><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/><path d="M7 10l5 5 5-5" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 15V3" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round"/></>,
-    calendar: <><rect x="3" y="4" width="18" height="17" rx="2" stroke={color} strokeWidth="1.6" fill="none"/><path d="M16 2v4M8 2v4M3 9h18" stroke={color} strokeWidth="1.6" strokeLinecap="round"/></>,
-    news:     <><path d="M4 4h12l4 4v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" stroke={color} strokeWidth="1.6" fill="none" strokeLinejoin="round"/><path d="M8 12h8M8 16h5" stroke={color} strokeWidth="1.6" strokeLinecap="round"/><path d="M16 4v4h4" stroke={color} strokeWidth="1.4" fill="none" strokeLinejoin="round"/></>,
     facebook: <><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke={color} strokeWidth="1.5" fill="none" strokeLinejoin="round"/></>,
     youtube:  <><rect x="2" y="5" width="20" height="14" rx="3" stroke={color} strokeWidth="1.5" fill="none"/><path d="M10 9l6 3-6 3V9z" stroke={color} strokeWidth="1.4" fill="none" strokeLinejoin="round"/></>,
     email:    <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke={color} strokeWidth="1.6" fill="none"/><path d="M22 6l-10 7L2 6" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round"/></>,
@@ -31,7 +33,9 @@ function Icon({ name, size = 22, color = "currentColor" }) {
   );
 }
 
-export default function Navbar({ page, setPage }) {
+export default function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [noticeIdx, setNoticeIdx] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -39,6 +43,11 @@ export default function Navbar({ page, setPage }) {
     const t = setInterval(() => setNoticeIdx(i => (i + 1) % NOTICES.length), 4000);
     return () => clearInterval(t);
   }, []);
+
+  function isActive(name) {
+    if (name === "Home") return location.pathname === "/";
+    return location.pathname === `/${name.toLowerCase()}`;
+  }
 
   return (
     <>
@@ -69,7 +78,7 @@ export default function Navbar({ page, setPage }) {
 
       {/* ── MAIN NAVBAR ── */}
       <nav className="navbar">
-        <div className="nav-brand">
+        <div className="nav-brand" onClick={() => navigate("/")}>
           <div className="nav-logo-box">
             <Icon name="school" size={26} color="#fff" />
           </div>
@@ -90,23 +99,23 @@ export default function Navbar({ page, setPage }) {
             {NAV_LINKS.map(link => (
               <span
                 key={link}
-                className={`nav-link ${page === link ? "active" : ""}`}
-                onClick={() => { setPage(link); setMenuOpen(false); }}
+                className={`nav-link ${isActive(link) ? "active" : ""}`}
+                onClick={() => { navigate(toPath(link)); setMenuOpen(false); }}
               >
                 {link}
               </span>
             ))}
           </div>
           <div className="nav-icon-group">
-            <span className={`nav-icon-btn ${page === "Notice" ? "active" : ""}`} onClick={() => { setPage("Notice"); setMenuOpen(false); }} title="Notices">
-              <Icon name="bell" size={18} color={page === "Notice" ? "#1649B0" : "#556080"} />
+            <span className={`nav-icon-btn ${isActive("Notice") ? "active" : ""}`} onClick={() => { navigate("/notice"); setMenuOpen(false); }} title="Notices">
+              <Icon name="bell" size={18} color={isActive("Notice") ? "#1649B0" : "#556080"} />
               <span className="nav-icon-dot" />
             </span>
-            <span className={`nav-icon-btn ${page === "Download" ? "active" : ""}`} onClick={() => { setPage("Download"); setMenuOpen(false); }} title="Downloads">
-              <Icon name="download" size={18} color={page === "Download" ? "#1649B0" : "#556080"} />
+            <span className={`nav-icon-btn ${isActive("Download") ? "active" : ""}`} onClick={() => { navigate("/download"); setMenuOpen(false); }} title="Downloads">
+              <Icon name="download" size={18} color={isActive("Download") ? "#1649B0" : "#556080"} />
             </span>
           </div>
-          <button className="nav-contact-btn" onClick={() => setMenuOpen(false)}>
+          <button className="nav-contact-btn" onClick={() => { navigate("/contact"); setMenuOpen(false); }}>
             Contact Us
           </button>
         </div>
@@ -114,9 +123,9 @@ export default function Navbar({ page, setPage }) {
 
       {/* ── NOTICE TICKER ── */}
       <div className="ticker">
-        <span className="ticker-label" onClick={() => setPage("Notice")}>Notice</span>
+        <span className="ticker-label" onClick={() => navigate("/notice")}>Notice</span>
         <span className="ticker-text">{NOTICES[noticeIdx]}</span>
-        <span className="ticker-link" onClick={() => setPage("Notice")}>View All Notices →</span>
+        <span className="ticker-link" onClick={() => navigate("/notice")}>View All Notices →</span>
       </div>
     </>
   );

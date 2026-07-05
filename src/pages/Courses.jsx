@@ -28,7 +28,7 @@ export default function Courses() {
     return (
         <div className="cp">
             <div className="cp-breadcrumb">
-                Home <span>&gt;&gt;</span> Courses <span>&gt;&gt;</span> {current.title}
+                <a href="/" style={{ color: '#fff', textDecoration: 'none' }}>Home</a> <span>&gt;&gt;</span> Courses <span>&gt;&gt;</span> {current.title}
             </div>
 
             <div className="cp-body">

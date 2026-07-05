@@ -297,9 +297,12 @@
   transform: translateY(-3px);
 }
 
-.facility-emoji {
-  font-size: 32px;
+.facility-icon {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
 }
 
 .facility-label {
@@ -326,8 +329,14 @@
 }
 
 .principal-avatar {
-  font-size: 52px;
   flex-shrink: 0;
+  background: #EEF2FF;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .principal-quote {

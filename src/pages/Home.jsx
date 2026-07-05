@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
-/* ── Put your actual school photo path here ──
-   e.g. import schoolPhoto from "../assets/school.jpg";
-   Then replace SCHOOL_PHOTO_URL below with: schoolPhoto          */
 const SCHOOL_PHOTO_URL = "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80";
-// ↑ Replace with your real image: import school from "./assets/school.jpg"; then use {school}
 
 const STATS = [
   { val: 800, suffix: "+", label: "Students Enrolled",    icon: "mortarboard", iconBg: "#EEF2FF", iconColor: "#1649B0", underline: "#1649B0" },
@@ -24,11 +21,11 @@ const WHY = [
 ];
 
 const FACILITIES = [
-  { label: "Science Laboratory", emoji: "🔬" },
-  { label: "Computer Lab",       emoji: "💻" },
-  { label: "Library",            emoji: "📚" },
-  { label: "Sports Ground",      emoji: "⚽" },
-  { label: "Classrooms",         emoji: "🏫" },
+  { label: "Science Laboratory", icon: "beaker" },
+  { label: "Computer Lab",       icon: "computer" },
+  { label: "Library",            icon: "book" },
+  { label: "Sports Ground",      icon: "sports" },
+  { label: "Classrooms",         icon: "building" },
 ];
 
 const NOTICES_FULL = [
@@ -51,6 +48,9 @@ function Icon({ name, size = 22, color = "currentColor" }) {
     handshake:   <><path d="M6 9H2v10h4V9zM22 9h-4v10h4V9z" stroke={color} strokeWidth="1.5" fill="none" strokeLinejoin="round"/><path d="M6 11l3-2h3l4 2-2 2H9l-3-2z" stroke={color} strokeWidth="1.5" fill="none" strokeLinejoin="round"/></>,
     arrow:       <><path d="M5 12h14M12 5l7 7-7 7" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></>,
     bell:        <><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></>,
+    book:        <><path d="M4 6h16M4 12h16M4 18h16" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/><path d="M4 6l16-2v14L4 20V6z" stroke={color} strokeWidth="1.6" fill="none" strokeLinejoin="round"/></>,
+    building:    <><rect x="3" y="3" width="18" height="19" rx="2" stroke={color} strokeWidth="1.6" fill="none"/><path d="M9 22V12h6v10M3 14l9-8 9 8" stroke={color} strokeWidth="1.5" fill="none" strokeLinejoin="round"/><circle cx="12" cy="9" r="1.5" stroke={color} strokeWidth="1.5" fill="none"/></>,
+    user:        <><circle cx="12" cy="8" r="4" stroke={color} strokeWidth="1.6" fill="none"/><path d="M4 22c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke={color} strokeWidth="1.6" fill="none" strokeLinecap="round"/></>,
   };
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,7 +74,9 @@ function CountUp({ target, suffix = "", duration = 1600 }) {
   return <>{val}{suffix}</>;
 }
 
-export default function Home({ setPage }) {
+export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <main>
 
@@ -82,14 +84,12 @@ export default function Home({ setPage }) {
       <section className="hero">
         <div className="hero-overlay" />
 
-        {/* Real school photo */}
         <img
           src={SCHOOL_PHOTO_URL}
           alt="Shree Mahendra Secondary School building"
           className="hero-photo"
         />
 
-        {/* Text content over the photo */}
         <div className="hero-content">
           <h1 className="hero-title">
             Nurturing Knowledge,<br />
@@ -102,10 +102,10 @@ export default function Home({ setPage }) {
             with a commitment to academic excellence, discipline, and holistic development.
           </p>
           <div className="hero-btn-row">
-            <button className="btn-primary" onClick={() => setPage("Achievements")}>
+            <button className="btn-primary" onClick={() => navigate("/achievements")}>
               View Achievements →
             </button>
-            <button className="btn-ghost">About Our School</button>
+            <button className="btn-ghost" onClick={() => navigate("/about")}>About Our School</button>
           </div>
         </div>
       </section>
@@ -158,7 +158,9 @@ export default function Home({ setPage }) {
         <div className="facilities-row">
           {FACILITIES.map(f => (
             <div key={f.label} className="facility-card">
-              <div className="facility-emoji">{f.emoji}</div>
+              <div className="facility-icon">
+                <Icon name={f.icon} size={28} color="#1649B0" />
+              </div>
               <div className="facility-label">{f.label}</div>
             </div>
           ))}
@@ -167,9 +169,8 @@ export default function Home({ setPage }) {
 
       {/* ── PRINCIPAL MESSAGE + LATEST NOTICES ── */}
       <section className="section-white two-col-section">
-        {/* Principal */}
         <div className="principal-box">
-          <div className="principal-avatar">👨‍💼</div>
+          <div className="principal-avatar"><Icon name="user" size={32} color="#1649B0" /></div>
           <div>
             <p className="principal-quote">
               "At Shree Mahendra Secondary School, we believe that education is not just about academics,
@@ -181,7 +182,6 @@ export default function Home({ setPage }) {
           </div>
         </div>
 
-        {/* Notices */}
         <div className="notices-box">
           <div className="notices-header">
             <Icon name="bell" size={16} color="#1649B0" />
@@ -205,7 +205,7 @@ export default function Home({ setPage }) {
           <p className="cta-title">Award-winning school, proud community legacy</p>
           <p className="cta-sub">District and provincial recognition across academics, sports, and culture.</p>
         </div>
-        <button className="cta-btn" onClick={() => setPage("Achievements")}>
+        <button className="cta-btn" onClick={() => navigate("/achievements")}>
           View All Achievements →
         </button>
       </div>
