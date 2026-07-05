@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import About from './pages/About'
+import Courses from './pages/Courses'
 import Achievements from './pages/Achievements'
 import Alumni from './pages/Alumni'
 import Footer from './components/Footer'
@@ -16,6 +17,7 @@ function App() {
 
       {page === 'Home'         && <Home         setPage={setPage} />}
       {page === 'About'        && <About                           />}
+      {page === 'Courses'      && <Courses                         />}
       {page === 'Achievements' && <Achievements setPage={setPage} />}
       {page === 'Alumni'       && <Alumni                           />}
 

@@ -1,0 +1,109 @@
+.cp-breadcrumb {
+    background: rgb(20, 138, 229);
+    color: #000000;
+    padding: 10px 32px;
+    font-size: 14px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cp-body {
+    display: flex;
+    gap: 32px;
+    padding: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cp-main {
+    flex: 1;
+}
+
+.cp-img-wrap {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.cp-img-wrap img {
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+    display: block;
+}
+
+.cp-main h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: black;
+}
+
+.cp-main p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.cp-main ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cp-main ul li {
+    font-size: 14px;
+    color: #444;
+    padding: 2px 0;
+}
+
+.cp-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.cp-sidebar h3 {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.cp-card {
+    display: flex;
+    gap: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.cp-card:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+}
+
+.cp-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cp-card p {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.cp-card p:first-child {
+    font-size: 13px;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 700px) {
+    .cp-body {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .cp-sidebar {
+        width: 100%;
+    }
+}
