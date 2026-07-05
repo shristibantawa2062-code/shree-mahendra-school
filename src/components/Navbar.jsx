@@ -7,7 +7,7 @@ const NOTICES = [
   "Annual Sports Day scheduled for Poush 15, 2081 BS.",
 ];
 
-const NAV_LINKS = ["Home", "Achievements"];
+const NAV_LINKS = ["Home", "About", "Achievements", "Alumni"];
 
 /* ── inline SVG icon helper (no external lib needed) ── */
 function Icon({ name, size = 22, color = "currentColor" }) {

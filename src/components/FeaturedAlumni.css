@@ -1,0 +1,70 @@
+.fa-section {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.fa-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.fa-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.fa-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.fa-card__photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 14px;
+  border: 3px solid #DBEAFE;
+}
+
+
+
+.fa-card__name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
+.fa-card__prof {
+  font-size: 13px;
+  color: var(--royal);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.fa-card__achievement {
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.5;
+  padding: 8px 12px;
+  background: #F8FAFC;
+  border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+  .fa-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .fa-section { padding: 60px 0; }
+  .fa-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .fa-grid { grid-template-columns: 1fr; }
+}
